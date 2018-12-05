@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+
+  mongo:
+    image: mongo:3.6
+    ports:
+      - "27017:27017"
+    networks:
+      - remme-quiz
+
+  tasks-web-api:
+    container_name: tasks-web-api
+    image: tasks.webapi:latest
+    entrypoint: /bin/bash
+    command: ./wait-for-it.sh mongo:27017 -t 30 -- ./TasksWebApi
+    networks:
+      - remme-quiz
+    ports:
+      - "50500:50500"
+
+networks:
+  remme-quiz:

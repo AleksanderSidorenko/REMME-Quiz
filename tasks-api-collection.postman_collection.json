@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "82904454-a155-4c40-82ad-44e8ab7e827f",
+		"name": "tasks-api-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:50500/api/tasks?$filter=status eq done",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI0OGJiNzY4Ny1lN2JkLTQ3ZjMtODdlZi0yMTg4ZDlhM2I2ZTUiLCJyb2xlIjoiQWRtaW5pc3RyYXRvciIsIm5iZiI6MTU0NDAyNzI4MywiZXhwIjoxNTQ0NjMyMDgzLCJpYXQiOjE1NDQwMjcyODN9.rnsRe-mlPXXFhYgiVcIishPsKnf4aGqPMlJdblXB6wI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"UserId\": \"66fc7461-674c-4bde-bc03-83100cbae41b\",\n    \"Summary\": \"Summary3\",\n    \"Status\": \"todo\"\n}\n"
+				},
+				"url": {
+					"raw": "localhost:50500/api/tasks?$filter=status eq todo",
+					"host": [
+						"localhost"
+					],
+					"port": "50500",
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "$filter",
+							"value": "status eq todo"
+						}
+					]
+				},
+				"description": "Get tasks for current user (or all tasks under admin credentials) with \"done\" status"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:50500/api/tasks",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3NzMwMTQyZS1hNzBjLTRlNGMtODBkYS05Mzc5MjBlMGY0N2UiLCJyb2xlIjoiVXNlciIsIm5iZiI6MTU0NDAyNzI5MCwiZXhwIjoxNTQ0NjMyMDkwLCJpYXQiOjE1NDQwMjcyOTB9.x-6cxI0dapwkbh8inH_Blf5JZK0ijfWton85mATEDw4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Summary\": \"Summary3\",\n    \"Status\": \"todo\"\n}\n"
+				},
+				"url": {
+					"raw": "localhost:50500/api/tasks",
+					"host": [
+						"localhost"
+					],
+					"port": "50500",
+					"path": [
+						"api",
+						"tasks"
+					]
+				},
+				"description": "Create new task for current user"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:50500/api/users/authenticate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t \"Username\": \"johndoe\", \n\t \"Password\": \"john\"\n}\n"
+				},
+				"url": {
+					"raw": "localhost:50500/api/users/authenticate",
+					"host": [
+						"localhost"
+					],
+					"port": "50500",
+					"path": [
+						"api",
+						"users",
+						"authenticate"
+					]
+				},
+				"description": "Authenticate new user"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:50500/api/tasks/f4dc6ae2-915f-4a61-8617-5e63643db0db",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3NzMwMTQyZS1hNzBjLTRlNGMtODBkYS05Mzc5MjBlMGY0N2UiLCJyb2xlIjoiVXNlciIsIm5iZiI6MTU0NDAyNzI5MCwiZXhwIjoxNTQ0NjMyMDkwLCJpYXQiOjE1NDQwMjcyOTB9.x-6cxI0dapwkbh8inH_Blf5JZK0ijfWton85mATEDw4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\"op\":\"add\", \"path\": \"/Status\", \"value\": \"done\"]"
+				},
+				"url": {
+					"raw": "localhost:50500/api/tasks/f4dc6ae2-915f-4a61-8617-5e63643db0db",
+					"host": [
+						"localhost"
+					],
+					"port": "50500",
+					"path": [
+						"api",
+						"tasks",
+						"f4dc6ae2-915f-4a61-8617-5e63643db0db"
+					]
+				},
+				"description": "Change status of the task"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:50500/api/tasks/f4dc6ae2-915f-4a61-8617-5e63643db0db",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3NzMwMTQyZS1hNzBjLTRlNGMtODBkYS05Mzc5MjBlMGY0N2UiLCJyb2xlIjoiVXNlciIsIm5iZiI6MTU0NDAyNzI5MCwiZXhwIjoxNTQ0NjMyMDkwLCJpYXQiOjE1NDQwMjcyOTB9.x-6cxI0dapwkbh8inH_Blf5JZK0ijfWton85mATEDw4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\"op\":\"add\", \"path\": \"/Status\", \"value\": \"done\"}\n]"
+				},
+				"url": {
+					"raw": "localhost:50500/api/tasks/f4dc6ae2-915f-4a61-8617-5e63643db0db",
+					"host": [
+						"localhost"
+					],
+					"port": "50500",
+					"path": [
+						"api",
+						"tasks",
+						"f4dc6ae2-915f-4a61-8617-5e63643db0db"
+					]
+				},
+				"description": "Delete task"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:50500/api/tasks/939fda90-e971-479e-96a3-a49c355d98ca",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI0OGJiNzY4Ny1lN2JkLTQ3ZjMtODdlZi0yMTg4ZDlhM2I2ZTUiLCJyb2xlIjoiQWRtaW5pc3RyYXRvciIsIm5iZiI6MTU0NDAyNzI4MywiZXhwIjoxNTQ0NjMyMDgzLCJpYXQiOjE1NDQwMjcyODN9.rnsRe-mlPXXFhYgiVcIishPsKnf4aGqPMlJdblXB6wI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"UserId\": \"66fc7461-674c-4bde-bc03-83100cbae41b\",\n    \"Summary\": \"Summary3\",\n    \"Status\": \"todo\"\n}\n"
+				},
+				"url": {
+					"raw": "localhost:50500/api/tasks/939fda90-e971-479e-96a3-a49c355d98ca",
+					"host": [
+						"localhost"
+					],
+					"port": "50500",
+					"path": [
+						"api",
+						"tasks",
+						"939fda90-e971-479e-96a3-a49c355d98ca"
+					]
+				},
+				"description": "Get task by id"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	}
+}
